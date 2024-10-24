@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href = "products.css" ?>
+
+<product>
+<prod id='1'>
+<name>Mclaren graphic tee</name>
+<desciption>Mclaren Race car with finish line</desciption>
+<price>$45.00</price>
+<category>
+    <type>shirt</type>
+    <style>old-money</style>
+    <fit>loose</fit>
+</category>
+</prod>
+
+<prod id='2'>
+<name>March Madness Vintage Tee</name>
+<desciption>March Madness Brakcet from 1994</desciption>
+<price>$38.00</price>
+<category>
+    <type>shirt</type>
+    <style>vintage-sports</style>
+    <fit>fitted</fit>
+</category>
+</prod>
+
+<prod id='3'>
+<name>San Fransisco 49ers Crewneck</name>
+<desciption>Striped 49ers crewneck sweatshirt</desciption>
+<price>$80.00</price>
+<category>
+    <type>sweatshirt</type>
+    <style>vintage-sports</style>
+    <fit>oversized</fit>
+</category>
+</prod>
+
+<prod id='4'>
+<name>Cleveland Browns Vintage-Inspired Graphic Tee</name>
+<desciption>Old school Bbrowns logo tee shirt</desciption>
+<price>$50.00</price>
+<category>
+    <type>shirt</type>
+    <style>vintage-sports</style>
+    <fit>loose</fit>
+</category>
+</prod>
+
+<prod id='5'>
+<name>Cropped Zip Workwear Jacket</name>
+<desciption>Plain heavyduty ranch inspired jacket</desciption>
+<price>$150.00</price>
+<category>
+    <type>jacket</type>
+    <style>outdoor-work</style>
+    <fit>normal</fit>
+</category>
+</prod>
+
+<prod id='6'>
+<name>Camp Collar Summer Linen-Blend Shirt</name>
+<desciption>striped Linen Button Down shirt</desciption>
+<price>$60.00</price>
+<category>
+    <type>button-down</type>
+    <style>summer-style</style>
+    <fit>fitted</fit>
+</category>
+</prod>
+
+<prod id='7'>
+<name>Fuzzy Cropped Cardigan</name>
+<desciption>Fleece Fuzzy cardigan with brown buttons</desciption>
+<price>$90.00</price>
+<category>
+    <type>Cardigan</type>
+    <style>Home-Cozy</style>
+    <fit>loose</fit>
+</category>
+</prod>
+
+
+<prod id='8'>
+<name>Cadillac Premium Polished Graphic Tee</name>
+<desciption>Plain t-shirt with vintage cadillac logo</desciption>
+<price>$25.00</price>
+<category>
+    <type>shirt</type>
+    <style>old-money</style>
+    <fit>loose</fit>
+</category>
+</prod>
+
+
+</product>

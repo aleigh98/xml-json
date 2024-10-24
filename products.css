@@ -1,0 +1,5 @@
+@charset "utf-8";
+product {width: 60%; margin: 100px auto 0 auto; border: 2px solid #4E4FD0; min-height: 200px; padding: 20px}
+prod {display:block; text-align: center; margin-bottom: 10px;}
+prod price {color: #ff0000;}
+prod name {text-decoration: underline;}
