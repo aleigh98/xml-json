@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
+    crossorigin="anonymous"></script>
+
+    <style>
+        #json {font-size: 18px;}
+        #name {font-weight: bold; font-size: 20px}
+        #category {text-decoration: underline;}
+    </style>
+
+    <script>
+        $.getJSON('https://aleigh98.github.io/xml-json/products.json', function(data) {
+            products = JSON.stringify(data)
+            parsed = JSON.parse(products)
+            NUM_PRODUCTS = Object.keys(parsed).length
+            arr = []
+            for (i=1;i<NUM_PRODUCTS + 1; i++) {
+                prod = "prod" + i
+                arr.push(JSON.stringify(parsed[prod]))
+            }
+            for (i=0;i<arr.length;i++) {
+                product = JSON.parse(arr[i])
+                $('#json').append("<div id='name'> '"+product['name']+"' </div>")
+                $('#json').append("<div id='description'> '"+product['description']+"' </div>")
+                $('#json').append("<div id='price'> Price: '"+product['price']+"' </div>")
+                $('#json').append("<div id='category'> Categories: '"+product['category']['type']+", "+product['category']['style']+", "+product['category']['fit']+"' </div>")
+                $('#json').append("<div>&nbsp;</div>")
+
+            }
+        })
+        
+    </script>
+</head>
+
+<body>
+    <div id="json">&nbsp;</div>
+</body>
+</html>

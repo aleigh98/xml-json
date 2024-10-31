@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
+    crossorigin="anonymous"></script>
+
+    <style>
+        #json {font-size: 20px;}
+        #dropdown {margin: 0 auto; width: 100px;}
+        #info {text-align: center; width: 400px; border: 2px solid; border-color: #000000; margin: 0 auto; margin-top: 100px; padding-bottom: 20px;}
+        html,body {background-color: #f3f2f2;}
+        #btn {margin-top: 30px; text-align: center;}
+        h1 {text-align: center; margin-bottom: 60px;}
+        h2 {text-align: center;}
+
+    </style>
+
+    <script>
+        function buildCats(data, NUM_PRODUCTS) {
+            categories = []
+            for (i=1; i<NUM_PRODUCTS+1;i++) {
+                prod = "prod" + i
+                type = data[prod]['category']['type']
+                fit = data[prod]['category']['fit']
+                style = data[prod]['category']['style']
+                if (!categories.includes(type)) {
+                    categories.push(type)
+                }
+                if (!categories.includes(fit)) {
+                    categories.push(fit)
+                }
+                if (!categories.includes(style)) {
+                    categories.push(style)
+                }
+            }
+            return categories
+        }
+
+        function buildSelect(categories) {
+            oparr = []
+            for(i=0;i<categories.length;i++) {
+                oparr.push("<option value='"+categories[i]+"'>'"+categories[i]+"'</option>")
+            }
+            
+            for (i=0;i<categories.length;i++) {
+                $('#filter').append(oparr[i])
+            }
+        }
+
+        function findMatches(val, data, NUM_PRODUCTS) {
+            types = []
+            fits = []
+            styles = []
+            for (i=1;i<NUM_PRODUCTS + 1;i++) {
+                prod = "prod" + i
+                if (!types.includes(data[prod]['category']['type'])) {
+                    types.push(data[prod]['category']['type'])
+                } 
+                if (!fits.includes(data[prod]['category']['fit'])) {
+                    fits.push(data[prod]['category']['fit'])
+                } 
+                if (!styles.includes(data[prod]['category']['style'])) {
+                    styles.push(data[prod]['category']['style'])
+                } 
+            }
+            for (i=0;i<types.length;i++) {
+                if (val == types[i]) {
+                    category = "type"
+                }
+            }
+
+            for (i=0;i<fits.length;i++) {
+                if (val == fits[i]) {
+                    category = "fit"
+                }
+            }
+
+            for (i=0;i<styles.length;i++) {
+                if (val == styles[i]) {
+                    category = "style"
+                }
+            }
+            arr = []
+            for (i=1; i<NUM_PRODUCTS + 1; i++) {
+                prod = "prod" + i;
+                jsonval = parsed[prod]['category'][category]
+                if (val == jsonval) {
+                    arr.push("</br>" + parsed[prod]['name'])
+                }
+            }
+            $('#info').html(arr.toString())
+        }
+
+        $(document).ready(function() {
+            $.getJSON('https://aleigh98.github.io/xml-json/products.json', function(data) {
+                products = JSON.stringify(data)
+                parsed = JSON.parse(products)
+                NUM_PRODUCTS = Object.keys(parsed).length
+                categories = buildCats(parsed, NUM_PRODUCTS)
+                buildSelect(categories)
+            })
+                
+            $('#btn').click(function() {
+                val = $('#filter').val()
+                findMatches(val, parsed, NUM_PRODUCTS)
+                
+            })
+        })
+
+    </script>
+</head>
+
+<body>
+    <h1>Select Category and Click Filter!</h1>
+    <div id="dropdown">
+        <select size="1" id="filter">
+        </select>
+        <input type="button" id="btn" value="Filter">
+    </div>
+
+    <div id="info">&nbsp;</div>
+</body>
+</html>
